@@ -31,9 +31,9 @@ public class FileCRUD {
 
     public static void renameFile(File oldFile, File newFile) {
         boolean result = oldFile.renameTo(newFile);
-        if(result){
+        if (result) {
             System.out.println("new file path: " + newFile);
-        }else{
+        } else {
             System.out.println("failed to rename");
         }
     }
@@ -42,9 +42,29 @@ public class FileCRUD {
         boolean result = file.delete();
         if (result) {
             System.out.println("file deleted");
-        }else{
+        } else {
             System.out.println("faied to delete " + file);
         }
+    }
+
+    public static void delete(File[] files) {
+        for (File file : files) {
+            delete(file);
+        }
+    }
+
+    public static File[] getListOfFiles(String directory, boolean printFilePath) {
+        File home = new File(directory);
+        File[] files = home.listFiles();
+
+        if (printFilePath) {
+            System.out.println("List of files and their paths");
+            for (File file : files) {
+                System.out.println(file.getPath());
+            }
+        }
+
+        return files;
     }
 }
 
@@ -69,11 +89,24 @@ class DriverClass {
         FileCRUD.renameFile(new File(path), newFile);
 
         // lets delete a file
-        FileCRUD.delete(new File(directory)); // delete failed beacause of non-empty folder
-        if (true) {
+        // FileCRUD.delete(new File(directory)); // delete failed beacause of non-empty
+        // folder
+        if (false) {
             FileCRUD.delete(newFile);
         }
-        
-        FileCRUD.delete(new File(directory)); // delete success, now folder is empty
+
+        // FileCRUD.delete(new File(directory)); // delete success, now folder is empty
+
+        // create batch file (3)
+        for (int i = 1; i <= 3; i++) {
+            FileCRUD.createAFile(directory, "text-" + i +".txt");
+        }
+
+        // get list of file
+        File[] files = FileCRUD.getListOfFiles(directory, true);
+
+        // file batch delete
+        //FileCRUD.delete(files);
+
     }
 }
