@@ -37,6 +37,15 @@ public class FileCRUD {
             System.out.println("failed to rename");
         }
     }
+
+    public static void delete(File file) {
+        boolean result = file.delete();
+        if (result) {
+            System.out.println("file deleted");
+        }else{
+            System.out.println("faied to delete " + file);
+        }
+    }
 }
 
 /**
@@ -58,5 +67,13 @@ class DriverClass {
         // lets rename a file
         File newFile = FileCRUD.prepareAFile(directory, "new.txt");
         FileCRUD.renameFile(new File(path), newFile);
+
+        // lets delete a file
+        FileCRUD.delete(new File(directory)); // delete failed beacause of non-empty folder
+        if (true) {
+            FileCRUD.delete(newFile);
+        }
+        
+        FileCRUD.delete(new File(directory)); // delete success, now folder is empty
     }
 }
