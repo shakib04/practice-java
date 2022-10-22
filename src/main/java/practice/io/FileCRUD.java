@@ -1,6 +1,7 @@
 package practice.io;
 
 import java.io.File;
+import java.io.FileFilter;
 import java.io.IOException;
 
 public class FileCRUD {
@@ -66,6 +67,28 @@ public class FileCRUD {
 
         return files;
     }
+
+    public static void findFilesByExtention(String directory, String extention) {
+        File home = new File(directory);
+
+        FileFilter fileFilter = new FileFilter() {
+            @Override
+            public boolean accept(File pathname) {
+                String pathName = pathname.getName();
+                if (pathName.endsWith(extention)) {
+                    return true;
+                } else {
+                    return false;
+                }
+            }
+        };
+
+        File[] files = home.listFiles(fileFilter);
+        System.out.println("List of files with " + extention);
+        for (File file : files) {
+            System.out.println(file.getPath());
+        }
+    }
 }
 
 /**
@@ -73,6 +96,10 @@ public class FileCRUD {
  */
 class DriverClass {
 
+    /**
+     * @param args
+     * @throws IOException
+     */
     public static void main(String[] args) throws IOException {
         // String directory = FileCRUD.getWorkingDirectory();
         // System.out.println(directory);
@@ -99,14 +126,17 @@ class DriverClass {
 
         // create batch file (3)
         for (int i = 1; i <= 3; i++) {
-            FileCRUD.createAFile(directory, "text-" + i +".txt");
+            FileCRUD.createAFile(directory, "text-" + i + ".txt");
         }
 
         // get list of file
         File[] files = FileCRUD.getListOfFiles(directory, true);
 
         // file batch delete
-        //FileCRUD.delete(files);
+        // FileCRUD.delete(files);
+
+        // lets filter files
+        FileCRUD.findFilesByExtention(FileCRUD.getWorkingDirectory(), ".txt");
 
     }
 }
