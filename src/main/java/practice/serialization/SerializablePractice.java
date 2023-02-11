@@ -5,7 +5,7 @@ import java.io.*;
 public class SerializablePractice {
 }
 
-class Student {
+class Student implements Serializable{
     int id;
     String name;
 
