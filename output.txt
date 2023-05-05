@@ -1,0 +1,1 @@
+When you run the jar, the application will try to load properties from a file called test.properties that is located in the application working directory.
