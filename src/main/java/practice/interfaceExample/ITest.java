@@ -1,6 +1,5 @@
 package practice.interfaceExample;
 
-import javafx.print.Collation;
 
 public interface ITest {
 
