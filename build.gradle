@@ -2,6 +2,19 @@ plugins {
     id 'java'
 }
 
+task helloWorld{
+    doLast {
+        println 'Hello World!'
+        println "Project version: ${projectVersion}"
+    }
+}
+
+task byeWorld{
+    doLast {
+        println 'Bye World!'
+    }
+}
+
 group 'org.example'
 version '1.0-SNAPSHOT'
 
