@@ -38,3 +38,32 @@ Set a custom property with the key-value pair, like we can set version number:
 version=1.0.0
 ```
 
+Visualize the gradle with graph
+
+```bash
+./gradlew helloWorld --dry-run
+```
+
+Get gradle all task list command
+
+```bash
+./gradlew task --all
+```
+
+# Gradle Essentials
+
+## Build lifecycle phases
+There are 03 phases. 
+ - Initialization phase
+ - Configuration phase
+ - Execution phase
+
+Configuration code 
+- always outside doFirst and doLast actions
+- executed during configuration phase
+
+Execution code
+- always inside doFirst and doLast actions
+- Executed during execution phase
+
+
