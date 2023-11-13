@@ -15,34 +15,27 @@ task byeWorld{
     }
 }
 
-task copyDocs(type: Copy){
-    from "src"
-    into "build/docs"
-    include "**/*md"
-    includeEmptyDirs = false
-}
+//task copyDocs(type: Copy){
+//    from "src"
+//    into "build/docs"
+//    include "**/*md"
+//    includeEmptyDirs = false
+//}
+//
+//task createZip(type: Zip){
+//    from "build/docs"
+//    archiveFileName = "docs.zip"
+//    destinationDir = file("build/dist")
+//    dependsOn copyDocs
+//}
 
-task createZip(type: Zip){
-    from "build/docs"
-    archiveFileName = "docs.zip"
-    destinationDir = file("build/dist")
-    dependsOn copyDocs
-}
+
+apply from: "archiveing.gradle"
+
 
 // practice
+apply from: "test_script_plugin.gradle"
 
-task k{
-    doLast {
-       println "kkk ${projectVersion}"
-    }
-}
-
-task j{
-    dependsOn k
-    doLast {
-        println "jjj ${group}"
-    }
-}
 
 group 'org.example'
 version '1.0-SNAPSHOT'

@@ -1,0 +1,12 @@
+task k{
+    doLast {
+        println "kkk ${projectVersion}"
+    }
+}
+
+task j{
+    dependsOn k
+    doLast {
+        println "jjj ${version}"
+    }
+}
