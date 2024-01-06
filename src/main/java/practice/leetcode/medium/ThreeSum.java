@@ -1,6 +1,7 @@
 package practice.leetcode.medium;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class ThreeSum {
@@ -79,13 +80,44 @@ public class ThreeSum {
     }
 
     public static void main(String[] args) {
-        Integer[] s = {3, 5, 6, 8, 4};
-        System.out.println(numberOfCombination(s.length, 3));
-        System.out.println(numberOfCombination(4, 3));
+//        Integer[] s = {3, 5, 6, 8, 4};
+//        System.out.println(numberOfCombination(s.length, 3));
+//        System.out.println(numberOfCombination(4, 3));
+//
+//        String[] abcd = {"A", "B", "C", "D"};
+//        System.out.println(combination(abcd, 3));
 
-        String[] abcd = {"A", "B", "C", "D"};
-        System.out.println(combination(abcd, 3));
 
+        //int[] arr = {-1,0,1,2,-1,-4};
+        int[] arr = {1, 2, 3, 4};
+        int r = 3; // Number of elements to choose for each permutation
+
+
+        permutations(arr, r, 0, new int[r]);
+    }
+
+    static void permutations(int[] arr, int r, int index, int[] data) {
+        if (index == r) {
+            System.out.println(Arrays.toString(data));
+            return;
+        }
+
+        for (int i = 0; i < arr.length; i++) {
+            // Check for duplicates before adding to the permutation
+            if (!containsDuplicate(data, arr[i], index)) {
+                data[index] = arr[i];
+                permutations(arr, r, index + 1, data);
+            }
+        }
+    }
+
+    static boolean containsDuplicate(int[] data, int element, int index) {
+        for (int i = 0; i < index; i++) {
+            if (data[i] == element) {
+                return true;
+            }
+        }
+        return false;
     }
 
     public static List<List<Integer>> threeSum(int[] nums) {
