@@ -1,10 +1,10 @@
 import org.junit.jupiter.api.Test;
-import practice.HelloWorld;
+import practice.InputStreamExample;
 
 public class HelloWorldTest {
 
     @Test
     public void testMain(){
-        HelloWorld.main(new String[]{"abc"});
+        InputStreamExample.main(new String[]{"abc"});
     }
 }
