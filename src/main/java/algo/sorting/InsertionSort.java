@@ -1,4 +1,4 @@
-package practice.sorting;
+package algo.sorting;
 
 import java.util.Arrays;
 

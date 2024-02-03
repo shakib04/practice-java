@@ -1,4 +1,4 @@
-package practice;
+package algo;
 
 public class HelloWorld {
     public static void main(String[] args) {

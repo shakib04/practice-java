@@ -1,5 +1,5 @@
 import org.junit.jupiter.api.Test;
-import practice.HelloWorld;
+import algo.HelloWorld;
 
 public class HelloWorldTest {
 

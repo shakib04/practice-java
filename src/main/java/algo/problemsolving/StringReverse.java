@@ -1,6 +1,6 @@
-package practice.problemsolving;
+package algo.problemsolving;
 
-import practice.StopWatch;
+import algo.StopWatch;
 
 import java.util.Arrays;
 import java.util.Collections;

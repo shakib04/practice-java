@@ -1,4 +1,4 @@
-package practice.sorting;
+package algo.sorting;
 
 public class MergeSort2{
     static void merge(int arr[], int l, int m, int r)
