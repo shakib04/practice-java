@@ -2,18 +2,24 @@ plugins {
     id 'java'
 }
 
-task helloWorld{
+task smartRunBangladesh2027{
     doLast {
-        println 'Hello World!'
-        println "Project version: ${projectVersion}"
+        println "hello Participants!"
     }
 }
 
-task byeWorld{
+task startRun{
     doLast {
-        println 'Bye World!'
+        println("Run has started!")
     }
 }
+
+task myDetails{
+    doLast {
+        println "Participant Details {name = " + participentName + ", BIB NO: " + bibNo + "}";
+    }
+}
+
 
 //task copyDocs(type: Copy){
 //    from "src"
